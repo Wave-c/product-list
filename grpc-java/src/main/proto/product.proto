@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.wave.product;
+
+message ProductDto
+{
+    string id = 1;
+    string title = 2;
+    string note = 3;
+    float count = 4;
+}
+
+message AddProductResponse
+{
+    int32 statusCode = 1;
+    string message = 2;
+}
+
+service ProductService
+{
+    rpc AddProduct(stream ProductDto) returns (stream AddProductResponse);
+}

@@ -1,0 +1,38 @@
+server:
+    port: ${SERVER_PORT:0}
+
+spring:
+    application:
+        name: auth-service
+    datasource:
+        url: jdbc:postgresql://${POSTGRES_USER_HOST:localhost}:5432/user-db
+        username: WAVE
+        password: den1234567890/
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://${DISCOVERY_HOST:localhost}:8761/eureka
+
+management:
+    endpoint:
+        restart:
+            enabled: true
+        health:
+            enabled: true
+        info: 
+            enabled: true
+
+grpc:
+    server:
+        port: 9090
+
+logging:
+    pattern:
+        console: "[%d{yyyy-MM-dd HH:mm:ss:SSS}] %-5level [%t] [%logger - %line]: %m%n"
+    level:
+        com.wave.auth_service: info
+    include-application-name: false
+
+jwt:
+    secret: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855

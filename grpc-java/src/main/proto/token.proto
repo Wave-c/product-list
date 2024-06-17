@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.wave.token;
+
+message JwtDto
+{
+    string access = 1;
+    string refresh = 2;
+}
+
+message TokenRequest
+{
+    string token = 1;
+}
+
+message TokenResponse
+{
+    bool isTokenValid = 1;
+    string message = 2;
+}
+
+service TokenService
+{
+    rpc ValidateToken(stream TokenRequest) returns (stream TokenResponse);
+}

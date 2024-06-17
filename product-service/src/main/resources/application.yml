@@ -1,0 +1,10 @@
+grpc:
+    server:
+        port: 9191
+
+logging:
+    pattern:
+        console: "[%d{yyyy-MM-dd HH:mm:ss:SSS}] %-5level [%t] [%logger - %line]: %m%n"
+    level:
+        com.wave.product_service: info
+    include-application-name: false
